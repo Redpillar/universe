@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="description" content="한국항공우주연구원">
+    
+    <title>한국항공우주연구원</title>
+
+    <!-- Style -->
+    <!-- <link rel="stylesheet" href="../../../css/ui_common_pub.css"> -->
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <!-- 본문 바로가기 -->
+    <div class="skip-navigation">
+        <a href="#main_content">본문 바로가기</a>
+    </div>
+
+    <div class="wrap">
+        <!-- 헤더 -->
+        <header class="header">
+            <div class="top">
+                <div class="logo">
+                    <h1><img src="../../images/logo.svg" alt="한국항공우주연구원"></h1>
+                </div>
+                <ul class="menu-item">
+                    <li class="on"><button>대시보드</button></li>
+                    <li><button>대기정보</button></li>
+                    <li><button>부가산출물</button></li>
+                    <li><button>딥러닝</button></li>
+                </ul>
+            </div>
+            <div class="user-area">
+                <ul>
+                    <li><button><span class="blind">로그아웃</span></button></li>
+                    <li>
+                        <button onclick="onSettingClick()"><span class="blind">설정</span></button>
+                        <div class="setting">
+                            <div class="innerWrao">
+                                <ul>
+                                    <li><a href="javascript: void(0)">Account Setting</a></li>
+                                    <li><a href="javascript: void(0)">System Setting</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- 본문 -->
+        <main class="main">
+            <!-- 타이틀 박스 -->
+            <div class="title-box">
+                <div class="left">
+                    <p class="tit">대기정보 상세조회</p>
+                </div>
+
+                <div class="year-wrap">
+                    <div class="box">
+                        <button type="button" class="btn-prev" onclick="scheduleCalArr()">
+                            <span class="blind">이전</span>
+                        </button>
+                        <div class="year">
+                            <!-- <span>January 2023</span> -->
+                            <input type="text" calendar month verticalCenter noicon value="January 2023" format="mw yn" onfocus="bothCalendarEv()" readonly class="ehceked_calendar">
+                        </div>
+                        <button type="button" class="btn-next" onclick="scheduleCalArr()">
+                            <span class="blind">다음</span>
+                        </button>
+                    </div>
+                    <div>
+                        <button type="button" class="btn" onclick="scheduleThiMonth()">
+                            <span>this month</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="right">
+                    <div class="switch">
+                        <label>
+                            <input type="checkbox" checked="">
+                            <div>
+                                <span class="on">Month</span>
+                                <span class="off">Day</span>
+                            </div>  
+                            <i></i>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- // 타이틀 박스 -->
+            <div class="calendar-wrap">
+                <div class="month">
+                    <table>
+                        <colgroup>
+                            <col style="width: 14.28%">
+                            <col style="width: 14.28%">
+                            <col style="width: 14.28%">
+                            <col style="width: 14.28%">
+                            <col style="width: 14.28%">
+                            <col style="width: 14.28%">
+                            <col style="width: 14.28%">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th><div class="tit sun">SUN</div></th>
+                                <th><div class="tit">MON</div></th>
+                                <th><div class="tit">TUE</div></th>
+                                <th><div class="tit">WED</div></th>
+                                <th><div class="tit">THU</div></th>
+                                <th><div class="tit">FRI</div></th>
+                                <th><div class="tit sat">SAT</div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="old">
+                                    <div class="day sun">
+                                        <span class="num">30</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td class="old">
+                                    <div class="day">
+                                        <span class="num">31</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day on" onclick="toggleClass('click')">
+                                        <span class="num">1</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day on" onclick="toggleClass('click')">
+                                        <span class="num">2</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day on" onclick="toggleClass('click')">
+                                        <span class="num">3</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day on" onclick="toggleClass('click')">
+                                        <span class="num">4</span>
+                                        <div class="item">
+                                            <div class="fail">실패 5건</div>
+                                            <div class="fail">실패 5건</div>
+                                            <div class="fail">실패 5건</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day on sat" onclick="toggleClass('click')">
+                                        <span class="num">5</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="day on sun" onclick="toggleClass('click')">
+                                        <span class="num">6</span>
+                                        <div class="item">
+                                            <div class="success" onclick="alert('test')">성공 115건</div>
+                                            <div class="fail">실패 5건</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day on active" onclick="toggleClass('click')">
+                                        <span class="num">7</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day">
+                                        <span class="num">8</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day">
+                                        <span class="num">9</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day">
+                                        <span class="num">10</span>
+                                        <div class="item">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day">
+                                        <span class="num">11</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day sat">
+                                        <span class="num">12</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="day sun">
+                                        <span class="num">13</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day">
+                                        <span class="num">14</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day">
+                                        <span class="num">15</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day">
+                                        <span class="num">16</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day">
+                                        <span class="num">17</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day">
+                                        <span class="num">18</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day sat">
+                                        <span class="num">19</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="day sun">
+                                        <span class="num">20</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day">
+                                        <span class="num">21</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day">
+                                        <span class="num">22</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day">
+                                        <span class="num">23</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day">
+                                        <span class="num">24</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day">
+                                        <span class="num">25</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day sat">
+                                        <span class="num">26</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="day sun">
+                                        <span class="num">27</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day">
+                                        <span class="num">28</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day">
+                                        <span class="num">29</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="day">
+                                        <span class="num">30</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td class="new">
+                                    <div class="day">
+                                        <span class="num">1</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td class="new">
+                                    <div class="day">
+                                        <span class="num">2</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                                <td class="new">
+                                    <div class="day sat">
+                                        <span class="num">3</span>
+                                        <div class="item"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+             
+            </div>
+        </main>
+
+        <!-- 팝업 -->
+        <div class="calendar-pop" style="display: none;">
+            <div class="top">
+                <div class="tit">20221215  P.M.11:00 ~ 11:59 산출물 현황</div>
+                <div class="result">
+                    <p class="icon-fail">fail</p>
+                    <p class="icon-success">success</p>
+                </div>
+                <button class="btn-closed">
+                    <span class="blind">닫기</span>
+                </button>
+            </div>
+            <div class="cont">
+                <ul>
+                    <li>
+                        <div class="txt">
+                            <p>11:30</p>
+                            <p>cvpps_cms_lev2_cid_2022121535675.log</p>
+                        </div>
+                        <p><i class="icon-fail"></i></p>
+                        <p><button class="btn" type="button"><span>로그보기</span></button></p>
+                    </li>
+                    <li>
+                        <div class="txt">
+                            <p>11:30</p>
+                            <p>cvpps_cms_lev2_cid_2022121535675.log</p>
+                        </div>
+                        <p><i class="icon-success"></i></p>
+                        <p><button class="btn" type="button"><span>로그보기</span></button></p>
+                    </li>
+                    <li>
+                        <div class="txt">
+                            <p>11:30</p>
+                            <p>cvpps_cms_lev2_cid_2022121535675.log</p>
+                        </div>
+                        <p><i class="icon-fail"></i></p>
+                        <p><button class="btn" type="button"><span>로그보기</span></button></p>
+                    </li>
+                    <li class="active">
+                        <div class="txt">
+                            <p>11:30</p>
+                            <p>cvpps_cms_lev2_cid_2022121535675.log</p>
+                        </div>
+                        <p><i class="icon-success"></i></p>
+                        <p><button class="btn" type="button"><span>로그보기</span></button></p>
+                    </li>
+                    <li>
+                        <div class="txt">
+                            <p>11:30</p>
+                            <p>cvpps_cms_lev2_cid_2022121535675.log</p>
+                        </div>
+                        <p><i class="icon-success"></i></p>
+                        <p><button class="btn" type="button"><span>로그보기</span></button></p>
+                    </li>
+                    <li class="active">
+                        <div class="txt">
+                            <p>11:30</p>
+                            <p>cvpps_cms_lev2_cid_2022121535675.log</p>
+                        </div>
+                        <p><i class="icon-success"></i></p>
+                        <p><button class="btn" type="button"><span>로그보기</span></button></p>
+                    </li>
+                    <li>
+                        <div class="txt">
+                            <p>11:30</p>
+                            <p>cvpps_cms_lev2_cid_2022121535675.log</p>
+                        </div>
+                        <p><i class="icon-success"></i></p>
+                        <p><button class="btn" type="button"><span>로그보기</span></button></p>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+        <!-- // 팝업 -->
+    </div>
+
+    <script>
+        const month = document.querySelector('.month table');
+        const len = month.rows.length;
+        const styleHeight = "calc(100% / " + len + ")";
+        const rows = month.querySelectorAll("tr");
+        rows.forEach((t,i)=>{
+            t.style.height = styleHeight;
+        })
+    </script>
+
+
+    <script src="../../js/common/ui/common.js"></script>
+</body>
+
+</html>
